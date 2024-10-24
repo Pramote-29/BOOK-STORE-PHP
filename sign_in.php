@@ -44,7 +44,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/custom.css">
-    <title>Sign up</title>
+    <title>Sign in</title>
 </head>
 <body class="container">
     <?php include"includes/navbar.php"; ?>
