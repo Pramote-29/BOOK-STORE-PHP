@@ -29,7 +29,7 @@ if (isset($_POST['update'])) {
         $img_src = $target_file;
         $sql = "UPDATE books SET title='$title', author='$author', price='$price', image='$img_src' WHERE id='$id'";
     } else {
-        // อัปเดตข้อมูลทั่วไปโดยไม่อัปเดตรูปภาพ
+        // เปลี่ยนแค่ข้อมูลไม่ได้เปลี่ยนรูปภาพ
         $sql = "UPDATE books SET title='$title', author='$author', price='$price' WHERE id='$id'";
     }
 
