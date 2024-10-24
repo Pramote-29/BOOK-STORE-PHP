@@ -1,6 +1,7 @@
 <?php
     include("includes/config.php");
     session_start();
+    // ดึงข้อมูลจากtable books
     $sql = "SELECT * FROM books";
     $result = $conn->query($sql);
 ?>

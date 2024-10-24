@@ -2,13 +2,12 @@
 include("../includes/config.php");
 session_start();
 
-// ตรวจสอบว่าเป็นผู้ใช้ที่เข้าสู่ระบบหรือไม่
+// ตรวจสอบว่าเป็นผู้ใช้ที่เข้าสู่ระบบมั้ย
 if($_SESSION['role'] != 'user'){
     header('location: ../sign_in.php');
     exit();
 }
 if(!isset($_SESSION['user_id'])) {
-    // ถ้าไม่มีค่า user_id ใน session ให้ส่งผู้ใช้ไปยังหน้า sign_in.php
     header('location: ../sign_in.php');
     exit();
 }
@@ -34,11 +33,11 @@ if(isset($_GET['book_id'])){
 
 // เมื่อกดปุ่ม borrow
 if(isset($_POST['borrow'])){
-    $user_id = $_SESSION['user_id']; // assume user is logged in
+    $user_id = $_SESSION['user_id']; 
     $borrow_date = $_POST['borrow_date'];
     $return_date = $_POST['return_date'];
 
-    // ตรวจสอบว่าหนังสือเล่มนี้มีการยืมอยู่หรือไม่
+    // ตรวจสอบว่าหนังสือเล่มนี้มีการยืมอยู่มั้ย
     $check_sql = "SELECT * FROM borrow_records WHERE book_id = '$book_id' AND status = 'borrowed'";
     $check_result = $conn->query($check_sql);
     

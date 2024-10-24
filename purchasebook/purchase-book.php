@@ -25,6 +25,7 @@
             exit();
         }
     }
+    // เมื่อกดปุ่ม place order
     if(isset($_POST["purchase"])){
         $user_id = $_SESSION["user_id"];
         $shipping_address = $_POST["shipping_address"];
@@ -65,7 +66,7 @@
             </div>
         </div>
 
-        <!-- ฟอร์มกรอกที่อยู่และสั่งซื้อ -->
+        <!-- ใส่ที่อยู่และกดสั่งซื้อ-->
         <div class="col-md-6">
             <form method="POST" class="mt-3">
                 <div class="mb-3">

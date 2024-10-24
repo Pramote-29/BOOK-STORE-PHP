@@ -2,7 +2,7 @@
 include("../includes/config.php");
 session_start();
 
-// ตรวจสอบว่าเป็นผู้ใช้ที่เข้าสู่ระบบหรือไม่
+// ตรวจสอบว่าเป็นผู้ใช้ที่เข้าสู่ระบบมั้ย
 if ($_SESSION['role'] != 'user') {
     header('location: ../sign_in.php');
     exit();
@@ -25,7 +25,7 @@ $result = $conn->query($sql);
 if (isset($_POST['return'])) {
     $borrow_id = $_POST['borrow_id'];
     
-    // อัปเดตสถานะของการยืมให้เป็น "returned"
+    // อัปเดตสถานะของการยืมให้เป็น returned
     $return_sql = "UPDATE borrow_records SET status = 'returned' WHERE id = '$borrow_id'";
     
     if ($conn->query($return_sql) === TRUE) {

@@ -47,6 +47,7 @@ if(isset($_POST['submit'])){
         }
     }
     }
+    // ดึงข้อมูลจาก table books
     $sql = "SELECT * FROM books";
     $result = $conn->query($sql);
 ?>
