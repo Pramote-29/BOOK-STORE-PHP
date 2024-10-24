@@ -6,10 +6,7 @@ if($_SESSION['role'] != 'admin'){
     header('location: sign_in.php');
     exit();
 }
-// check error
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+
 
 if(isset($_POST['submit'])){
     $title = $_POST ['title'];

@@ -24,7 +24,8 @@
         หากคุณไม่แน่ใจว่าหนังสือเล่มไหนเหมาะกับคุณ หรือคุณแค่อยากทดลองอ่านก่อนตัดสินใจซื้อ บริการยืมหนังสือของเราเป็นทางเลือกที่ยอดเยี่ยม!ไม่ว่าคุณจะเป็นนักอ่านตัวยง หรือแค่เริ่มต้นเพิ่งจะสนใจการอ่าน เราขอต้อนรับคุณเข้าสู่โลกของหนังสือที่เต็มไปด้วยความรู้และความสนุก เราหวังว่าคุณจะสนุกกับการเลือกหนังสือ และพบกับการอ่านที่น่าตื่นเต้น!
 มาร่วมเป็นส่วนหนึ่งของร้านหนังสือของเรา และค้นพบโลกใบใหม่ผ่านหน้ากระดาษกันเถอะ!</p>
     </div>
-    <div class="row mt-5">
+    <h2 class="fs-3 mt-5">รายการหนังสือ ทั้งหมด</h2>
+    <div class="row mt-2">
         <?php
         if ($result->num_rows > 0) {
             // แสดงข้อมูลเป็น cards
@@ -37,8 +38,8 @@
                             <h5 class="card-title"><?php echo $row['title']; ?></h5>
                             <p class="card-text"> <?php echo $row['author']; ?></p>
                             <p class="card-text">Price: $<?php echo $row['price']; ?></p>
-                            <a href="purchasebook/purchase.php" class="btn btn-primary">Buy</a>
-                            <a href="borrowbook/borrow.php" class="btn btn-success">Borrow</a>
+                            <a href="purchasebook/purchase.php" class="btn btn-primary">Purchase</a>
+                            <a href="borrowbook/borrow-book.php?book_id=<?php echo $row['id']; ?>" class="btn btn-success">Borrow</a>
                         </div>
                     </div>
                 </div>

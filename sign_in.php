@@ -4,6 +4,7 @@
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
     session_start();
+    
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $email = $_POST['email'];
         $password = $_POST['password'];
@@ -15,13 +16,16 @@
         if ($result->num_rows > 0) {
             $row = $result->fetch_assoc();
             if (password_verify($password, $row['password'])) {
+                // ตั้งค่า session
+                $_SESSION['user_id'] = $row['id']; // เพิ่มการตั้งค่า user_id
                 $_SESSION['username'] = $row['username'];
                 $_SESSION['role'] = $row['role'];
     
+                // ตรวจสอบ role
                 if ($row['role'] == 'admin') {
-                    header("Location:admin.php");
+                    header("Location: admin.php");
                 } else {
-                    header("Location:user.php");
+                    header("Location: user.php");
                 }
                 exit;
             } else {
@@ -32,6 +36,7 @@
         }
     }
 ?>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
