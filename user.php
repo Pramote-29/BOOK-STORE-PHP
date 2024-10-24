@@ -38,7 +38,7 @@
                             <h5 class="card-title"><?php echo $row['title']; ?></h5>
                             <p class="card-text"> <?php echo $row['author']; ?></p>
                             <p class="card-text">Price: $<?php echo $row['price']; ?></p>
-                            <a href="purchasebook/purchase.php" class="btn btn-primary">Purchase</a>
+                            <a href="purchasebook/purchase-book.php?book_id=<?php echo $row['id']; ?>" class="btn btn-success">Buy</a>
                             <a href="borrowbook/borrow-book.php?book_id=<?php echo $row['id']; ?>" class="btn btn-success">Borrow</a>
                         </div>
                     </div>

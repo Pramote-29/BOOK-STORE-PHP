@@ -6,11 +6,10 @@
       </div>
 
       <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-        <li><a href="returnbook/return-book.php" class="text-black btn btn-outline-secondary fs-5">Return book</a></li>
-       
       </ul>
 
       <div class="col-md-3 text-end">
+        <a href="../user.php" class="btn btn-outline-secondary fs-5">back</a>
         <a href="sign_out.php" class="btn btn-danger fs-5">sign out</a>
       </div>
     </header>

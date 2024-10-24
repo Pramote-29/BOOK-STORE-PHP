@@ -52,9 +52,7 @@ if(isset($_POST['borrow'])){
                 VALUES ('$user_id', '$book_id', '$borrow_date', '$return_date', 'borrowed')";
         
         if ($conn->query($sql) === TRUE) {
-            echo  '<div class="alert alert-success" role="alert">
-            Book borrowed successfully!
-        </div>';
+            echo  '<div class="alert alert-success" id="alert-box" role="alert">Book borrowed successfully!</div>';
         } else {
             echo "Error: " . $conn->error;
         }
@@ -73,7 +71,7 @@ if(isset($_POST['borrow'])){
 </head>
 <body class="container bg-light">
     <!-- Navbar -->
-    <?php include "../includes/bor-buy-navbar.php"; ?>
+    <?php include "../includes/in-borrow.php"; ?>
 
     <h1 class="text-center mt-5">Borrow Book</h1>
     <div class="row mt-5" >
@@ -102,7 +100,14 @@ if(isset($_POST['borrow'])){
         </div>
     </div>
 </div>
-
+    <script>
+       setTimeout(function(){
+        var alertBox =document.getElementById('alert-box')
+        if(alertBox)[
+            alertBox.style.display='none'
+        ]
+       },3000) // 3วิ
+    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>

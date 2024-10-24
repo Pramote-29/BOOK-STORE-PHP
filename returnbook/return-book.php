@@ -29,9 +29,9 @@ if (isset($_POST['return'])) {
     $return_sql = "UPDATE borrow_records SET status = 'returned' WHERE id = '$borrow_id'";
     
     if ($conn->query($return_sql) === TRUE) {
-        echo '<div class="alert alert-success" role="alert">Book returned successfully!</div>';
+        echo '<div class="alert alert-success" id="alert-box" role="alert">Book returned successfully!</div>';
     } else {
-        echo '<div class="alert alert-danger" role="alert">Error: ' . $conn->error . '</div>';
+        echo '<div class="alert alert-danger" id="alert-box" role="alert">Error: ' . $conn->error . '</div>';
     }
 }
 ?>
@@ -82,7 +82,14 @@ if (isset($_POST['return'])) {
             ?>
         </tbody>
     </table>
-
+    <script>
+        setTimeout(function() {
+            var alertBox = document.getElementById('alert-box');
+            if (alertBox) {
+                alertBox.style.display = 'none';
+            }
+        }, 3000);// 3 วินาที
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
