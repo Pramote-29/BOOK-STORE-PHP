@@ -8,11 +8,8 @@ if ($_SESSION['role'] != 'admin') {
     exit();
 }
 
-// ตรวจสอบว่ามีการส่งค่า id มาจากหน้า dashboard หรือไม่
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
-
-    // ดึงข้อมูลหนังสือจากฐานข้อมูลเพื่อนำมาแสดงในฟอร์ม
     $sql = "SELECT * FROM books WHERE id = '$id'";
     $result = $conn->query($sql);
     $book = $result->fetch_assoc();
@@ -25,14 +22,11 @@ if (isset($_POST['update'])) {
     $author = $_POST['author'];
     $price = $_POST['price'];
 
-    // ตรวจสอบว่ามีการอัปโหลดรูปภาพใหม่หรือไม่
     if ($_FILES['image']['name']) {
         $target_dir = "uploads/";
         $target_file = $target_dir . basename($_FILES["image"]["name"]);
         move_uploaded_file($_FILES["image"]["tmp_name"], $target_file);
         $img_src = $target_file;
-
-        // อัปเดตรูปภาพด้วย
         $sql = "UPDATE books SET title='$title', author='$author', price='$price', image='$img_src' WHERE id='$id'";
     } else {
         // อัปเดตข้อมูลทั่วไปโดยไม่อัปเดตรูปภาพ
@@ -40,7 +34,7 @@ if (isset($_POST['update'])) {
     }
 
     if ($conn->query($sql) === TRUE) {
-        header('Location: admin.php'); // กลับไปหน้า dashboard หลังอัปเดตสำเร็จ
+        header('Location: admin.php');
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }
@@ -56,7 +50,7 @@ if (isset($_POST['update'])) {
     <title>Update Book</title>
 </head>
 <body class="container bg-light">
-    <!-- ฟอร์มอัปเดตข้อมูลหนังสือ -->
+    <!-- ฟอร์มแก้ไขข้อมูลหนังสือ -->
     <div class="container mt-5">
         <h2 class="text-center fw-bold">Update Book</h2>
         <form action="updatebook.php?id=<?= $book['id'] ?>" method="post" enctype="multipart/form-data">

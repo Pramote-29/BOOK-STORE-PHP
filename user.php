@@ -16,12 +16,18 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <title>users dashboard</title>
 </head>
-<body class="container">
-    <?php include "includes/navout.php"; ?>
-    <div class="row">
+<body class="container bg-light">
+    <?php include "includes/bor-buy-navbar.php"; ?>
+    <div class="conatiner mt-5">
+    <h1 class="fs-2 fw-bold text-primary">Welcome to Book.store</h1>
+        <p>ที่นี่คือสถานที่ที่คุณจะได้พบกับโลกแห่งการอ่านที่ไม่มีที่สิ้นสุด เรามีหนังสือมากมายจากหลากหลายแนว ทั้งวรรณกรรมคลาสสิก นิยายฟันธง หนังสือเรียน และหนังสือเด็ก ที่จะเปิดประตูสู่จินตนาการและความรู้ใหม่ๆนอกจากนี้เรายังมีบริการยืมหนังสือ!
+        หากคุณไม่แน่ใจว่าหนังสือเล่มไหนเหมาะกับคุณ หรือคุณแค่อยากทดลองอ่านก่อนตัดสินใจซื้อ บริการยืมหนังสือของเราเป็นทางเลือกที่ยอดเยี่ยม!ไม่ว่าคุณจะเป็นนักอ่านตัวยง หรือแค่เริ่มต้นเพิ่งจะสนใจการอ่าน เราขอต้อนรับคุณเข้าสู่โลกของหนังสือที่เต็มไปด้วยความรู้และความสนุก เราหวังว่าคุณจะสนุกกับการเลือกหนังสือ และพบกับการอ่านที่น่าตื่นเต้น!
+มาร่วมเป็นส่วนหนึ่งของร้านหนังสือของเรา และค้นพบโลกใบใหม่ผ่านหน้ากระดาษกันเถอะ!</p>
+    </div>
+    <div class="row mt-5">
         <?php
         if ($result->num_rows > 0) {
-            // แสดงข้อมูลเป็น card
+            // แสดงข้อมูลเป็น cards
             while($row = $result->fetch_assoc()) {
                 ?>
                 <div class="col-md-3">
@@ -31,7 +37,8 @@
                             <h5 class="card-title"><?php echo $row['title']; ?></h5>
                             <p class="card-text"> <?php echo $row['author']; ?></p>
                             <p class="card-text">Price: $<?php echo $row['price']; ?></p>
-                            <a href="#" class="btn btn-primary">More Info</a>
+                            <a href="purchasebook/purchase.php" class="btn btn-primary">Buy</a>
+                            <a href="borrowbook/borrow.php" class="btn btn-success">Borrow</a>
                         </div>
                     </div>
                 </div>
