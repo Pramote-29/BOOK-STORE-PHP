@@ -5,7 +5,7 @@
         $username = $_POST['username'];
         $password = password_hash($_POST['password'],PASSWORD_BCRYPT);
         $email = $_POST['email'];
-        $role = $_POST['role'];
+        $role = 'user';
 
         //เข้าถึงsql
         $sql = "INSERT INTO users (username,email,password,role) VALUES ('$username','$email','$password','$role')";
@@ -41,13 +41,6 @@
             <div class="mb-3">
                 <label for="password" class="form-label">Password</label>
                 <input type="password" name="password" class="form-control" required>
-            </div>
-            <div class="mb-3">
-                <label for="role" class="form-label">Select Role</label>
-                <select name="role" class="form-control">
-                    <option value="user">user</option>
-                    <option value="admin">admin</option>
-                </select>
             </div>
             <button type="submit" class="btn btn-primary mb-3">sign up</button>
             <p>alreay have an account ?<a href="sign_in.php">Click here</a>to sign in</p>
